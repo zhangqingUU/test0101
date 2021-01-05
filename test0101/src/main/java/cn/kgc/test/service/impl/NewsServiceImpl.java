@@ -1,14 +1,15 @@
 package cn.kgc.test.service.impl;
 
 import cn.kgc.test.bean.News;
+import cn.kgc.test.bean.NewsModel;
 import cn.kgc.test.mapper.NewsMapper;
-import cn.kgc.test.mapper.UserMapper;
 import cn.kgc.test.service.NewsService;
 import cn.kgc.test.util.PageRequest;
 import cn.kgc.test.util.PageResult;
 import cn.kgc.test.util.PageUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,11 @@ public class NewsServiceImpl implements NewsService {
     NewsMapper newsMapper;
 
     @Override
-    public News selNewById(int id) {
-        return newsMapper.selNewById(id);
+    public NewsModel selNewsById(int id) {
+        News news = newsMapper.selNewsById(id);
+        NewsModel model = new NewsModel();
+        BeanUtils.copyProperties(news,model);
+        return model;
     }
 
     @Override

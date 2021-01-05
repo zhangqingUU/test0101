@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,4 +17,6 @@ public class Comment {
     private String content;
     private int createdUserId;
     private Date createdTime;
+    /*一对多，一条新闻对应多条评论*/
+    private List<User> userList;
 }

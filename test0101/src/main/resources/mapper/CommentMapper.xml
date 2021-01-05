@@ -6,4 +6,25 @@
         insert comment(news_id,content,created_user_id,created_time)
         values(#{newsId},#{content},#{createdUserId},#{createdTime})
     </insert>
+
+
+
+    <resultMap id="NewsAndComment" type="cn.kgc.test.bean.Comment">
+        <result column="created_time" property="createdTime" jdbcType="DATE"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <collection property="userList" ofType="cn.kgc.test.bean.User">
+            <!--<id column="id" property="id" jdbcType="INT" />-->
+            <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+        </collection>
+    </resultMap>
+
+    <!--查询所有的新闻和评论，（分页）查看评论功能，包括：评论时间、评论人昵称、评论内容，按照时间倒序分页展示-->
+    <select id="selCommentAndUser" resultMap="CommentAndUser" parameterType="int">
+        select c.created_time,nick_name,content
+        from comment c,user u
+        where c.`created_user_id`=u.`id`
+        where news_id=#{newsId}
+        order by c.`created_time` desc
+    </select>
+
 </mapper>

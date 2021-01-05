@@ -1,11 +1,12 @@
 package cn.kgc.test.service;
 
 import cn.kgc.test.bean.News;
+import cn.kgc.test.bean.NewsModel;
 import cn.kgc.test.util.PageRequest;
 import cn.kgc.test.util.PageResult;
 
 public interface NewsService {
-    News selNewById(int id);
+    NewsModel selNewsById(int id);
 
     /**
      * 分页查询接口

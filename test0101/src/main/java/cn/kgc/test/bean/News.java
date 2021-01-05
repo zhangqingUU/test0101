@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +17,6 @@ public class News {
     private String title;
     private String content;
     private String author;
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
     private Date createdTime;
     private int createdUserId;
 }

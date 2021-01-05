@@ -12,13 +12,12 @@ public interface NewsMapper {
      * @param id
      * @return
      */
-    News selNewById(@Param("id") int id);
-
-
+    News selNewsById(@Param("id") int id);
 
     /**
      * 分页查询新闻
      * @return
      */
     List<News> selNewsList();
+
 }
