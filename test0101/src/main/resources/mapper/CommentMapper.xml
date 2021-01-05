@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.kgc.test.mapper.CommentMapper">
+    <!--新增评论-->
+    <insert id="addComment" parameterType="cn.kgc.test.bean.Comment" keyProperty="id" useGeneratedKeys="true">
+        insert comment(news_id,content,created_user_id,created_time)
+        values(#{newsId},#{content},#{createdUserId},#{createdTime})
+    </insert>
+</mapper>

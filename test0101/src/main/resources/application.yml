@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver           #数据库驱动
+    url:  jdbc:mysql://localhost:3306/newdb1230         #指定mysql数据库中的test子库
+    username: root                                     #用户名
+    password: root
+
+mybatis:
+  type-aliases-package: cn.kgc.test.bean
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true  #开启mybatis的字段命名驼峰转换
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
