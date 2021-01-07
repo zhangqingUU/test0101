@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    name : myschool #数据库名
+    url : jdbc:mysql://localhost:3306/myschool #url地址
+    username : root #账号
+    password : root #密码
+    driver-class-name : com.mysql.jdbc.Driver #驱动
+
+
+mybatis:
+  type-aliases-package: cn.kgc.test.bean
+  mapper-locations: classpath:mapper/UserMapper.xml

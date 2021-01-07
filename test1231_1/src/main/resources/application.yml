@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    name: myschool
+    url: jdbc:mysql://localhost:3306/myschool
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: classpath:mapper/UserMapper.xml
+  type-aliases-package: cn.kgc.test.bean
