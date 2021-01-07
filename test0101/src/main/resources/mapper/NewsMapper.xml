@@ -3,25 +3,23 @@
 
 <mapper namespace="cn.kgc.test.mapper.NewsMapper">
 
-    <resultMap id="LookOneNews" type="cn.kgc.test.bean.News">
-        <id column="id" property="id" jdbcType="INTEGER"></id>
-        <result column="title" jdbcType="VARCHAR" property="title"></result>
-        <result column="created_time" jdbcType="DATE" property="createdTime"></result>
-        <result column="content" jdbcType="VARCHAR" property="content"></result>
+    <resultMap id="News" type="cn.kgc.test.bean.News">
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="title" jdbcType="VARCHAR" column="title"/>
+        <result property="content"  jdbcType="VARCHAR" column="content"/>
+        <result property="author" jdbcType="VARCHAR" column="author"/>
+        <result property="createdTime" jdbcType="DATE" column="created_time"/>
+        <result property="createdUserId" jdbcType="INTEGER" column="created_user_id"/>
     </resultMap>
 
-    <resultMap id="LookAllNews" type="java.util.HashMap">
-        <result column="title" jdbcType="VARCHAR" property="title"></result>
-        <result column="created_time" jdbcType="DATE" property="createdTime"></result>
-    </resultMap>
-
-    <!--根据id查询新闻详情，内容包括：新闻标题、作者姓名、发布日期及新闻正文-->
-    <select id="selNewsById" parameterType="int" resultMap="LookOneNews">
-        select title,author,created_time,content from news where id=#{id}
+    <!--根据id查询新闻详情-->
+    <select id="selNewById" parameterType="int" resultType="News">
+          select title,author,created_time,content from news where id=#{id}
     </select>
 
-    <!--分页查看新闻列表功能，内容包括：新闻标题、发布日期，列表按照创建时间倒序进行排列-->
-    <select id="selNewsList" resultMap="LookAllNews">
-        select title,created_time from news order by created_time desc
+
+    <!--分页查询新闻列表-降序，只包含：id、新闻标题、内容-->
+    <select id="selNewsList" resultType="News">
+        select * from news order by created_time desc
     </select>
 </mapper>

@@ -1,7 +1,10 @@
 package cn.kgc.test.service;
 
 import cn.kgc.test.bean.Comment;
-import com.sun.corba.se.pept.encoding.OutputObject;
+import cn.kgc.test.util.PageRequest;
+import cn.kgc.test.util.PageResult;
+
+import java.util.Map;
 
 public interface CommentService {
     /**
@@ -11,11 +14,12 @@ public interface CommentService {
      */
     int addComment(Comment comment);
 
+
     /**
-     * 查询评论和作者
-     * @param
+     * 评论分页
+     * @param newsId
+     * @param pageRequest
      * @return
      */
-    OutputObject selCommentAndUser();
-
+    PageResult selComPage(int newsId,PageRequest pageRequest);
 }

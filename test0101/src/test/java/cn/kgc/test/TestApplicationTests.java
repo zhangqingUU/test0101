@@ -14,14 +14,9 @@ import java.util.Date;
 @RunWith(SpringRunner.class)
 public class TestApplicationTests {
 
-    //调用service层
-    @Autowired
-    CommentService commentService;
 
     @Test
     public void contextLoads() {
-        Comment comment=new Comment(-1,1,"哈哈哈",2,new Date());
-        System.out.println("结果："+ commentService.addComment(comment));
     }
 
 }

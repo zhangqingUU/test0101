@@ -2,6 +2,7 @@ package cn.kgc.test.controller;
 
 import cn.kgc.test.bean.Comment;
 import cn.kgc.test.service.CommentService;
+import cn.kgc.test.util.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,4 +26,12 @@ public class CommentController {
             return false;
         }
     }
+
+    @RequestMapping(value = "/findPage",method = RequestMethod.POST)
+    @ResponseBody
+    public Object findPage(int newsId,PageRequest pageQuery) {
+        System.out.println("进来了！！！");
+        return commentService.selComPage(newsId,pageQuery);
+    }
+
 }

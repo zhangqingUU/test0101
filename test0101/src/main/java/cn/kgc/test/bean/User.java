@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class User {
     private int id;
-    private String name;
-    private String nikeName;
+    private String phone;
+    private String nickName;
     private Date createdTime;
 }

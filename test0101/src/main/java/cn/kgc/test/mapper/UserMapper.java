@@ -11,5 +11,5 @@ import org.springframework.stereotype.Component;
 public interface UserMapper {
     User selByPhone(@Param("phone") String phone);
 
-
+    User selUserById(@Param("id") int id);
 }
